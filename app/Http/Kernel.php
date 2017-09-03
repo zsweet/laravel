@@ -18,6 +18,8 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\VerifyCsrfToken::class,
+
+        //如果全局变量在这里注册
     ];
 
     /**
@@ -25,9 +27,14 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+
+
     protected $routeMiddleware = [
+    
+       //这里要存放固定路由下的过滤，其实就是起一个别名，或者叫注册！！！
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        //'young' => \App\Http\Middleware\YoungMiddleware::class,
     ];
 }
